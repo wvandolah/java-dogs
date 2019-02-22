@@ -2,12 +2,14 @@ package com.student.dogs;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Slf4j
 @Configuration
 
 public class SeedDatabase {
+    @Bean
     public CommandLineRunner initDB(DogRepository dogRepo){
         return args -> {
             log.info("Seeding " + dogRepo.save(new Dogs("Springer", 50, false)));
